@@ -235,19 +235,3 @@ nodelabels(text = speciestree$node.label)
 <img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/9_speciestree_support.jpg" width="50%">
 
 There are other options you can add to the `nodelabels()` call to customize the labels, such as changing the background color with `bg = "color"` or the text color with `col = "color"`. See all the options with `help("nodelabels")`.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
