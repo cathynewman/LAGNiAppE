@@ -8,13 +8,12 @@ Here, we will explore some different ways to visualize and edit phylogenetic tre
 
 A partial list of the R packages that contain phylogeny-related functionality is available on the website [CRAN phylogenetics task view](https://cran.r-project.org/web/views/Phylogenetics.html).
 
-We will use **phangorn** (Schliep 2011) and **phytools** (Revell 2012).
+We will use **ape**, which stands for **A**nalysis of **P**hylogenetics and **E**volution in R.
 
-In RStudio, you can install packages in two ways. The first is by typing the R function `install.packages( )` directly into the command line, with the package name inside the parentheses. Do each package one at a time.
+In RStudio, you can install packages in two ways. The first is by typing the R function `install.packages( )` directly into the command line, with the package name inside the parentheses.
 
 ```r
-install.packages("phangorn")
-install.packages("phytools")
+install.packages("ape")
 ```
 
 The point-and-click way in RStudio is to move over to the lower-right window pane, click the "Packages" tab, and click "Install." Then type in the package name and install it (along with **dependencies**, which are all the other packages required by the one you're installing).
@@ -22,8 +21,7 @@ The point-and-click way in RStudio is to move over to the lower-right window pan
 **Load the libraries:** To actually use these installed packages (or libraries) during an R session, you need to **load** them first. Here again, in RStudio you can do it the regular way or the point-and-click way.
 
 ```r
-library(phangorn)
-library(phytools)
+library(ape)
 ```
 
 Or go back to the "Packages" tab in RStudio and click the checkbox next to each package you want to load.
@@ -40,35 +38,34 @@ So make sure your working dir is the location of the files you'll be working wit
 
 ## Trees in R
 
-I think R will also install the package **ape** as a dependency of either phangorn or phytools, but if ape doesn't appear in your list of installed packages now, install it as well and load it.
-
-The most important core package for phylogenies in R is called **ape**, which stands for **A**nalysis of **P**hylogenetics and **E**volution in R.
-
-### Loading a phylogenetic tree
+### Load a phylogenetic tree
 
 Let's read in a phylogenetic tree of vertebrates from a text string in Newick format. We can do this in a couple of different ways: specify the text string directly or read the tree from a tree file.
 
-Our example text string here will only specify the tree topology, no branch lengths or support values.
+Our vertebrate tree example text string here will only specify the tree topology, no branch lengths or support values.
+
+We can also read in a tree from file, such as one of our primate gene trees.
 
 ```r
-## create string with tree text
+# Create string with tree text
 text.string <- "(((((((cow, pig),whale),(bat,(lemur,human))),(robin,iguana)),coelacanth),goldfish),shark);"
 
-## read tree from string
+# Read tree from text string
 vert.tree <- read.tree(text = text.string)
+
+# Read a tree from file
+Acsm1.tree <- read.tree("Acsm1.tree")
 ```
 
-### Trees in phytools
+### Plot the tree
 
-When we read any phylogeny from file or from a text string (as we did in this case), we create an object in memory. Normally, it won’t be necessary to interact directly with this object’s internal structure. Instead, we usually pass the object unchanged to other functions, just as we did when we plotted our phylogeny in different styles above.
-
-Let's plot our tree using the phytools function `plotTree()`
+Let's first plot the basic vertebrate tree:
 
 ```r
-plotTree(vert.tree)
+plot(vert.tree)
 ```
 
-<img src="https://moodle.ulm.edu/draftfile.php/2243332/user/draft/540159805/1_tree-square.png" alt="square tree" width="538" height="355" class="img-responsive atto_image_button_text-bottom"><br>
+<img src="https://moodle.ulm.edu/draftfile.php/2243332/user/draft/540159805/1_tree-square.png" alt="square tree" width="538" height="355" class="img-responsive atto_image_button_text-bottom">
 
 Let's clean up the tree a little and make it triangle shaped:
 
