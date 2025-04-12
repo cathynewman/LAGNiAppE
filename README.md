@@ -11,4 +11,4 @@ LAGNiAppE workshop &#8226; Louisiana State University &#8226; April 24, 2025
 * [Phylogenetics tutorial](tutorial.md)
 * [Primate sequences](data/primate_seqs)
 * [Tree visualization tutorial](tree_viz.md)
-* Optional for further practice: *Plethodon* alignments
+* Optional for further practice: [*Plethodon* alignments](data/plethodon_alignments)
