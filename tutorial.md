@@ -16,7 +16,9 @@ Objectives:
 > [!NOTE]
 > Tree files in Newick format are all plain-text files. It doesn't really matter what the file extension is. Files with extensions `*.newick`, `*.tre`, `*.tree`, `*.treefile`, etc., are all equivalent. Some software tools expect specific filename extensions, but I don't think it actually matters here.
 
-**The dataset:** We will be using sequence data from Spinks PQ, Thomson RC, McCartney-Melstad E, and Shaffer HB (2016) Phylogeny and temporal diversification of the New World pond turtles (Emydidae). *Molecular Phylogenetics and Evolution*, 103: 85-97. [https://doi.org/10.1016/j.ympev.2016.07.007](https://doi.org/10.1016/j.ympev.2016.07.007)
+### The dataset: Emydid turtles
+
+We will be using sequence data from Spinks PQ, Thomson RC, McCartney-Melstad E, and Shaffer HB (2016) Phylogeny and temporal diversification of the New World pond turtles (Emydidae). *Molecular Phylogenetics and Evolution*, 103: 85-97. [https://doi.org/10.1016/j.ympev.2016.07.007](https://doi.org/10.1016/j.ympev.2016.07.007)
 
 ## PART 1: Sequence alignment – AliView
 
@@ -31,6 +33,8 @@ STEPS:
 6. Save alignment as **phylip file (full names & padded)**
 
 ## PART 2: Gene trees – IQ-TREE
+
+**Resources:** Here is the [IQ-TREE documentation](http://www.iqtree.org/doc/)
 
 In this section, we will reconstruct a phylogenetic tree for the gene alignment from the previous step. We will run 1,000 "ultrafast" bootstrap pseudoreplicates so that the gene tree has nodal support values to use, along with branch lengths, in the estimation of the species tree in the next section.
 
@@ -52,7 +56,7 @@ cd iqtree-3.0.0-macOS/bin
 5. Upload your tree file (just the *.treefile file) to the Google Classroom workshop directory [ADD LINK HERE]
 6. What do your gene trees show as the phylogenetic relationships among the emydid genera? Compare your trees to other groups. What do you think might be causing any observed differences?
 
-### FigTree tips
+## FigTree tips
 
 **Rooting:** Gene trees from IQ-TREE are unrooted trees. You can root with the outgroup in FigTree by clicking on the outgroup name or its branch to highlight it, then click `Reroot` on the top menu.
 
@@ -69,6 +73,8 @@ In the left sidebar menu in FigTree, click on `Tree` and check the box next to `
 ![How to rotate nodes in FigTree](images/FigTree_tips2.jpg)
 
 ## PART 3: Species trees – weighted ASTRAL
+
+**Resources:** Here are the GitHub sites for [ASTER](https://github.com/chaoszhang/ASTER), and specifically [Weighted ASTRAL](https://github.com/chaoszhang/ASTER/blob/master/tutorial/wastral.md)
 
 Now we will take all of the individual gene trees you and your fellow scholars generated in IQ-TREE and use those as input for weighted ASTRAL to estimate the species tree.
 
