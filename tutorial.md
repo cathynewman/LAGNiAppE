@@ -62,7 +62,11 @@ cd iqtree-3.0.0-macOS/bin
 
 In the left sidebar menu in FigTree, click on `Tree` and check the box next to `Transform branches`. Then choose any one of the options (I prefer "proportional"). Here is an example, with an original tree from IQ-TREE on the left, and the same tree set to proportional branches on the right:
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/FigTree_tips1.jpg" width="75%">
+![FigTree trees: Left = with branch lengths, Right = proportional](images/FigTree_tips1.jpg)
+
+**Rotating nodes:** You can also rotate nodes in FigTree. Remember, this doesn't change the tree topology, and it's different from rerooting the tree. You're simply flipping clades around in space visually without changing anything about the phylogenetic relationships depicted in the tree. For example, take the above tree on the right. It really annoys me personally that the outgroup branch is at the bottom while the *Glyptemys* clade is at the top. It looks "wrong" visually to me (this is just a personal preference). So below I show how to rotate the branch that will flip the *Glyptemys* clade down to the bottom. We are flipping the *Glyptemys* clade and the big clade that contains all other ingroup species, so on the left I've highlighted the branch that leads to the MRCA of those two clades:
+
+![How to rotate nodes in FigTree](images/FigTree_tips2.jpg)
 
 ## PART 3: Species trees – weighted ASTRAL
 
