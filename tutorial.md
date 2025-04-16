@@ -9,16 +9,19 @@ This tutorial will walk you through how to generate individual gene trees for pr
 
 Objectives:
 * Practice the steps of aligning sequences and generating gene trees and species trees.
-* Determine the phylogenetic relationships of great apes.
+* Explore the phylogenetic relationships of turtles in the family Emydidae.
 * Understand drivers of gene tree discordance and how species trees differ from gene trees.
 * Use FigTree and RStudio to visualize and edit trees.
 
+> [!NOTE]
+> Tree files in Newick format are all plain-text files. It doesn't really matter what the file extension is. Files with extensions `*.newick`, `*.tre`, `*.tree`, `*.treefile`, etc., are all equivalent. Some software tools expect specific filename extensions, but I don't think it actually matters here.
+
 ## PART 1: Sequence alignment – AliView
 
-In this section, we will download a `*.fasta` file of DNA sequences for a given gene and generate a multisequence alignment in AliView, which uses the MUSCLE alignment method.
+In this section, we will download a `*.fasta` file of DNA sequences for a given gene and generate a multisequence alignment in AliView, which uses the MUSCLE alignment algorithm.
 
 STEPS:
-1. Download the `*.fasta` file for your gene from GitHub.
+1. Download the `*.fasta` file for your genes from GitHub.
 2. Open AliView and load your list of sequences:  File > *Open File*
 3. Align the sequences:  Align > *Realign everything*
 4. If alignment ends are uneven (sequences aren't all the same length), AliView automatically fills the spaces with dashes (-). Technically, dashes indicate "real" alignment gaps, but in this case the spaces are simply missing data, not necessarily gaps. So replace gaps (-) with missing data (?) at the ends:  Edit > *Replace terminal gaps into missing char (?)*
@@ -37,14 +40,15 @@ STEPS:
 cd iqtree-3.0.0-macOS/bin
 ```
 
-3. Run IQ-TREE with the command below, editing to your alignment filename (-s). Here, we specify an outgroup (-o) as Rhesus, and we will run 1,000 ultrafast bootstrap pseudoreplicates (-B).
+3. Run IQ-TREE with the command below, editing to your alignment filename (-s). Here, we specify an outgroup (-o) as Platysternon_megacephalum, and we will run 1,000 ultrafast bootstrap pseudoreplicates (-B).
 
 ```
-./iqtree3 -s alignmentfile.phy -o "Rhesus" -B 1000
+./iqtree3 -s alignmentfile.phy -o "Platysternon_megacephalum" -B 1000
 ```
 
 4. Open the output tree file (*.treefile) in FigTree to look at it!
 5. Upload your tree file (just the *.treefile file) to the Google Classroom workshop directory [ADD LINK HERE]
+6. What do your gene trees show as the phylogenetic relationships among the emydid genera? Compare your trees to other groups. What do you think might be causing any observed differences?
 
 ## PART 3: Species trees – weighted ASTRAL
 
@@ -56,7 +60,7 @@ STEPS:
 3. Concatenate all the gene trees into a single file. This creates a new tree file (with the extension *.newick) containing a list of all the gene trees, which we will use as input for ASTRAL.
 
 ```
-cat *.treefile > primate_gene_trees.newick
+cat *.treefile > gene_trees.newick
 ```
 
 4. Optional: copy the newick gene tree file into the ASTRAL bin/ directory.
@@ -66,10 +70,11 @@ cat *.treefile > primate_gene_trees.newick
 cd ASTER-MacOS/bin
 ```
 
-6. Run weighted ASTRAL with the command below, editing to your gene tree filename (-i). Here, we specify an outgroup (--root) as Rhesus and the output filename (-o).
+6. Run weighted ASTRAL with the command below, editing to your gene tree filename (-i). Here, we specify an outgroup (--root) as Platysternon_megacephalum and the output filename (-o).
 
 ```
-./wastral -i primate_gene_trees.newick --root "Rhesus" -o primate_species_tree.tree
+./wastral -i gene_trees.newick --root "Platysternon_megacephalum" -o turtle_species_tree.tree
 ```
 
 7. Open the output tree file in FigTree to look at it!
+8. How does the species tree compare to your gene trees? What does the species tree show as the phylogenetic relationships among the genera? Are all the relationships strongly supported?
