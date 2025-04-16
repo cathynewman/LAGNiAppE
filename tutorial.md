@@ -16,6 +16,8 @@ Objectives:
 > [!NOTE]
 > Tree files in Newick format are all plain-text files. It doesn't really matter what the file extension is. Files with extensions `*.newick`, `*.tre`, `*.tree`, `*.treefile`, etc., are all equivalent. Some software tools expect specific filename extensions, but I don't think it actually matters here.
 
+**The dataset:** We will be using sequence data from Spinks PQ, Thomson RC, McCartney-Melstad E, and Shaffer HB (2016) Phylogeny and temporal diversification of the New World pond turtles (Emydidae). *Molecular Phylogenetics and Evolution*, 103: 85-97. [https://doi.org/10.1016/j.ympev.2016.07.007](https://doi.org/10.1016/j.ympev.2016.07.007)
+
 ## PART 1: Sequence alignment – AliView
 
 In this section, we will download a `*.fasta` file of DNA sequences for a given gene and generate a multisequence alignment in AliView, which uses the MUSCLE alignment algorithm.
@@ -49,6 +51,18 @@ cd iqtree-3.0.0-macOS/bin
 4. Open the output tree file (*.treefile) in FigTree to look at it!
 5. Upload your tree file (just the *.treefile file) to the Google Classroom workshop directory [ADD LINK HERE]
 6. What do your gene trees show as the phylogenetic relationships among the emydid genera? Compare your trees to other groups. What do you think might be causing any observed differences?
+
+### FigTree tips
+
+**Rooting:** Gene trees from IQ-TREE are unrooted trees. You can root with the outgroup in FigTree by clicking on the outgroup name or its branch to highlight it, then click `Reroot` on the top menu.
+
+**Bootstrap values:** When your tree file includes bootstrap or other support values, FigTree will ask upon opening the file what you want to name that set of values (default is "label"). Then, you can add those values to the tree: go to the left sidebar menu, check the box for `Node labels`, and in `Display`, choose whatever you named the bootstrap values. You can change font size, color, etc.
+
+**Branch lengths:** Sometimes trees with branch lengths can be hard to assess in FigTree, especially when IQ-TREE gives a lot of branches lengths of 0. This can make it hard to see the different clades and their interrelationships. In this workshop, we are mainly interested in tree *topology* (phylogenetic relationships) and not so much branch lengths (evolutionary time or extent of divergence), so it's fine to view your trees with branch lengths ignored.
+
+In the left sidebar menu in FigTree, click on `Tree` and check the box next to `Transform branches`. Then choose any one of the options (I prefer "proportional"). Here is an example, with an original tree from IQ-TREE on the left, and the same tree set to proportional branches on the right:
+
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/FigTree_tips1.jpg" width="75%">
 
 ## PART 3: Species trees – weighted ASTRAL
 
