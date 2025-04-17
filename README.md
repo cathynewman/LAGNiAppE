@@ -4,19 +4,22 @@ LAGNiAppE workshop &#8226; Louisiana State University &#8226; April 24, 2025
 
 ## Software
 
-[Software to download & install](software_info.md)
+[Software to download & install](0_software_info.md)
 
 ## Workshop materials
 
 * [Phylogenetics tutorial](1_phylo_tutorial.md)
-* [Turtle sequences](data/turtle_seqs)
+* [Turtle sequences](data/1_turtle_sequences.zip) (zip archive)
+
+We might not get to this during the workshop, but if you want to play around with phylogenetic trees in RStudio:
+
 * [Tree visualization tutorial](2_tree_viz.md)
 
 ## Optional datasets for further practice
 
 If you want further practice, here are some additional files: alignments for the rest of the genes (the ones we didn't use in the tutorial) from the Spinks et al. Emydidae paper, and DNA sequences (FASTA files) for 6 genes for great apes.
 
-In [data/optional](data/optional):
+In [data/](data/):
 
 * Remaining turtle alignments
 * Primate sequences

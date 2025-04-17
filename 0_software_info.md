@@ -1,6 +1,6 @@
 # Software Instructions
 
-These instructions are for MacOS. I have tested on MacBook Air M1 running [ADD HOME MACBOOK AIR VERSION] and MacBook Pro M2 running Sonoma 14.4.
+These instructions are for MacOS. I have tested on MacBook Air M1 running Big Sur 11 and MacBook Pro M2 running Sonoma 14.4.
 
 ## AliView
 
@@ -31,7 +31,7 @@ Installation: If you are running at least MacOS 14, you shouldn't need to do any
 1. Navigate into app directory: `cd ASTER-MacOS`
 2. Run make: `make`
 
-Note: on MacOS [HOME VERSION], I got warnings and errors during the make process, but the program still works for me. So try and see. Your mileage may vary.
+Note: on MacOS 11.x, I got warnings and errors during the make process, but the program still works for me. So try and see.
 
 To run:
 1. In your terminal app, navigate into ASTER bin directory: `cd ASTER-MacOS/bin`

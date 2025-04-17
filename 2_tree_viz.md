@@ -1,6 +1,6 @@
-# Tree Visualization
+# Tree Visualization in R
 
-Here, we will explore some different ways to visualize and edit phylogenetic trees using **FigTree** and **RStudio**.
+Here, we will explore some ways to visualize and edit phylogenetic trees using **RStudio**.
 
 ## Getting started
 
