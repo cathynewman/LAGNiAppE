@@ -9,7 +9,7 @@ LAGNiAppE workshop &#8226; Louisiana State University &#8226; April 24, 2025
 ## Workshop materials
 
 * [Phylogenetics tutorial](1_phylo_tutorial.md)
-* [Turtle sequences](data/1_turtle_sequences.zip) (zip archive)
+* [Turtle sequences](data/1_turtle_sequences.zip) (zip archive; in data/)
 
 We might not get to this during the workshop, but if you want to play around with phylogenetic trees in RStudio:
 
