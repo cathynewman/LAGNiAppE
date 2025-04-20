@@ -44,7 +44,7 @@ Let's read in a phylogenetic tree of vertebrates from a text string in Newick fo
 
 Our vertebrate tree example text string here will only specify the tree topology, no branch lengths or support values.
 
-We can also read in a tree from file, such as one of our primate gene trees.
+We can also read in a tree from file, such as one of our emydid turtle gene trees.
 
 ```r
 # Create string with tree text
@@ -54,12 +54,12 @@ text.string <- "(((((((cow, pig),whale),(bat,(lemur,human))),(robin,iguana)),coe
 vert.tree <- read.tree(text = text.string)
 
 # Read a tree from file
-Acsm1.tree <- read.tree("Acsm1.tree")
+turtles.tree <- read.tree("Emydidae_Mitochondrial.treefile")
 ```
 
 ### Plot the tree
 
-Let's first plot the basic vertebrate tree:
+Let's first plot the basic vertebrate tree. Calling `plot()` with a phylo object actually calls the ape function `plot.phylo()`. So to see all the options for this function (styles, color, etc.), use `help("plot.phylo")`. But here we can just use `plot()` for short:
 
 ```r
 plot(vert.tree)
@@ -98,50 +98,46 @@ By convention the *order* of the tip labels in `tip.label` corresponds to the nu
 
 ### Rooting a tree
 
-Let's look at the primate gene tree now.
+Let's look at an emydid turtle gene tree now. This is the mitochondrial gene tree that I generated in IQ-TREE.
+
+Because this tree has more tips, I'll make the text size smaller with `cex = 0.5` and make the tree fill the plot window by eliminating the margins with `no.margin = T`.
 
 ```r
-plot(Acsm1.tree)
+plot(turtles.tree, cex = 0.5, no.margin = T)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/3_Acsm1_tree.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/3_turtle_tree.jpg" width="50%">
 
 We can see that this tree is unrooted.
 
 ```r
-Acsm1.tree
+turtles.tree
 ```
 
 ```
-## Phylogenetic tree with 5 tips and 3 internal nodes.
+## Phylogenetic tree with 42 tips and 40 internal nodes.
 ##
 ## Tip labels:
-##   Rhesus, Orangutan, Chimp, Gorilla, Human
+##   Platysternon_megacephalum, Terrapene_ornata_luteola_1, Terrapene_ornata_luteola_2, Terrapene_carolina_triunguis_1, Terrapene_carolina_triunguis_2, Terrapene_carolina_1, ...
 ## Node labels:
-##   , 98, 46
+##   , 73, 62, 73, 100, 100, ...
 ##
 ## Unrooted; includes branch length(s).
 ```
 
-We can root the tree with the outgroup, Rhesus:
+We can root the tree with the outgroup, Platysternon_megacephalum.
+
+It's hard to see all the relationships here because the branch near the root of the tree was given a length of 0. For our purposes here, we don't really care about branch lengths anyway (we are only interested in tree topology), so let's also add an option to ignore the branch lengths in the plot by setting `use.edge.length` to `FALSE`:
 
 ```
 # Root tree
-Acsm1.tree.rooted <- root(Acsm1.tree, outgroup = "Rhesus", resolve.root = T)
+turtles.rooted <- root(turtles.tree, outgroup = "Platysternon_megacephalum", resolve.root = T)
 
 # Plot rooted tree
-plot(Acsm1.tree.rooted)
+plot(turtles.rooted, use.edge.length = F, cex = 0.5, no.margin = T)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/4_Acsm1_tree_rooted.jpg" width="50%">
-
-It's hard to see all the relationships here because the branch near the root of the tree was given a length of 0. For our purposes here, we don't really care about branch lengths anyway (we are only interested in tree topology), so let's add an option to ignore the branch lengths in the plot by setting `use.edge.length` to `FALSE`:
-
-```
-plot(Acsm1.tree.rooted, use.edge.length = F)
-```
-
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/5_Acsm1_tree_rooted_noBL.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/4_turtle_tree_rooted_noBL.jpg" width="50%">
 
 ### Rotating nodes
 
@@ -151,54 +147,26 @@ This is a personal preference, but I like the outgroup to be at the bottom of th
 nodelabels()
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/6_Acsm1_nodelabels.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/5_turtle_nodelabels.jpg" width="50%">
 
-Rotating node number 6 will flip the outgroup, Rhesus, down to the bottom:
+Rotating node number 43 will flip the outgroup, Platysternon_megacephalum, down to the bottom:
 
 ```
 # Rotate tree
-Acsm1.tree.rooted.rotated <- rotate(Acsm1.tree.rooted, node = 6)
+turtles.rooted.rotated <- rotate(turtles.rooted, node = 43)
 
 # Plot rotated tree
-plot(Acsm1.tree.rooted.rotated, use.edge.length = F)
+plot(turtles.rooted.rotated, use.edge.length = F, cex = 0.5, no.margin = T)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/7_Acsm1_rotated.jpg" width="50%">
-
-(You could then also rotate node 7 to flip human down to make a more visually appealing and "balanced" tree, if you want to. I won't show it here.)
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/6_turtle_rotated.jpg" width="50%">
 
 ### Adding support values
-
-Let's look at the primate species tree from ASTRAL now. This is a rooted tree that includes branch lengths and support values (for internal nodes; see below). The support values are in the object element "Node labels."
-
-```
-speciestree <- read.tree("speciestree.tre")
-speciestree
-```
-
-```
-## Phylogenetic tree with 6 tips and 5 internal nodes.
-##
-## Tip labels:
-##   Bonobo, Chimp, Human, Gorilla, Orangutan, Rhesus
-## Node labels:
-##   , , 0.996591, 0.832483, 0.970552
-##
-## Rooted; includes branch length(s).
-```
-
-Plot the tree:
-
-```
-plot(speciestree)
-```
-
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/8_speciestree.jpg" width="50%">
 
 The bootstrap support values are stored in the element "Node labels." To see what this element is actually named, use `names()` to show the names of all elements in the phylo object:
 
 ```
-names(speciestree)
+names(turtles.rooted.rotated)
 ```
 
 ```
@@ -208,30 +176,31 @@ names(speciestree)
 Now, before we plot the node labels, let's see exactly what they are. In R, you can call a specific element of an object with the dollar sign `$`
 
 ```
-speciestree$node.label
+turtles.rooted.rotated$node.label
 ```
 
 ```
-[1] ""         ""         "0.996591" "0.832483" "0.970552"
+##  [1] "Root" "73"   "62"   "73"   "100"  "100"  "78"   "100"  "98"   "88"   "100"  "100"  "100"
+## [14] "100"  "67"   "98"   "92"   "100"  "100"  "78"   "100"  "100"  "100"  "100"  "100"  "61"  
+## [27] "60"   "100"  "100"  "100"  "73"   "56"   "69"   "100"  "100"  "100"  "100"  "100"  "99"  
+## [40] "100"  ""
 ```
 
-First, you can see in this example that two of the nodes have an empty node label, denoted as `""`. This is because ASTRAL leaves the branch length and support value of terminal branches empty. This is a problem for some tree-viewing packages (such as `phytools`), which is the main reason why I'm just showing you some basic tree-viz tools in `ape` instead, which can handle these NA values. Discussion in the [weighted ASTRAL documentation](https://github.com/chaoszhang/ASTER/blob/master/tutorial/wastral.md).
-
-Second, we don't need all those decimal places in the numbers. If you want to round the numbers, the quickest way is to just re-set those support values manually. We can't use the `round()` function directly because the node labels are stored in the object as text strings, not numbers.
+First, notice that rerooting the tree gave the root node the name `Root`. If you don't want this label to appear on your tree, you can simply rename the root to an empty value. It's the first node label in the list, so select it with `[1]`:
 
 ```
-speciestree$node.label[3] <- "1.0"
-speciestree$node.label[4] <- "0.83"
-speciestree$node.label[5] <- "0.97"
+turtles.rooted.rotated$node.label[1] <- ""
 ```
 
-Now let's plot the tree and add node labels:
+You can also see in this example that the last node in the list (the node for the ingroup) has an empty node label, denoted as `""`. This isn't a problem for this example with an IQ-TREE tree, but ASTRAL in particular leaves the branch length and support value of terminal branches empty. This is a problem for some tree-viewing packages (such as `phytools`), which is the main reason why I'm just showing you some basic tree-viz tools in `ape` instead, which can handle these NA values. Discussion in the [weighted ASTRAL documentation](https://github.com/chaoszhang/ASTER/blob/master/tutorial/wastral.md).
+
+Now let's plot the tree and add node labels. I'll also adjust down the font size for the node labels:
 
 ```
 plot(speciestree)
-nodelabels(text = speciestree$node.label)
+nodelabels(text = turtles.rooted.rotated$node.label, cex = 0.5)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/9_speciestree_support.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/7_turtle_bootstrap.jpg" width="50%">
 
 There are other options you can add to the `nodelabels()` call to customize the labels, such as changing the background color with `bg = "color"` or the text color with `col = "color"`. See all the options with `help("nodelabels")`.
