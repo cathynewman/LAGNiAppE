@@ -106,7 +106,7 @@ Because this tree has more tips, I'll make the text size smaller with `cex = 0.5
 plot(turtles.tree, cex = 0.5, no.margin = T)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/3_turtle_tree.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/3_turtle_tree.jpg" width="75%">
 
 We can see that this tree is unrooted.
 
@@ -137,7 +137,7 @@ turtles.rooted <- root(turtles.tree, outgroup = "Platysternon_megacephalum", res
 plot(turtles.rooted, use.edge.length = F, cex = 0.5, no.margin = T)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/4_turtle_tree_rooted_noBL.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/4_turtle_tree_rooted_noBL.jpg" width="75%">
 
 ### Rotating nodes
 
@@ -147,7 +147,7 @@ This is a personal preference, but I like the outgroup to be at the bottom of th
 nodelabels()
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/5_turtle_nodelabels.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/5_turtle_nodelabels.jpg" width="75%">
 
 Rotating node number 43 will flip the outgroup, Platysternon_megacephalum, down to the bottom:
 
@@ -159,7 +159,7 @@ turtles.rooted.rotated <- rotate(turtles.rooted, node = 43)
 plot(turtles.rooted.rotated, use.edge.length = F, cex = 0.5, no.margin = T)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/6_turtle_rotated.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/6_turtle_rotated.jpg" width="75%">
 
 ### Adding support values
 
@@ -201,6 +201,6 @@ plot(speciestree)
 nodelabels(text = turtles.rooted.rotated$node.label, cex = 0.5)
 ```
 
-<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/7_turtle_bootstrap.jpg" width="50%">
+<img src="https://github.com/cathynewman/LAGNiAppE/blob/main/images/7_turtle_bootstrap.jpg" width="75%">
 
 There are other options you can add to the `nodelabels()` call to customize the labels, such as changing the background color with `bg = "color"` or the text color with `col = "color"`. See all the options with `help("nodelabels")`.
