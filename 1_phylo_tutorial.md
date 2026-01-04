@@ -1,6 +1,6 @@
 # Tutorial: Gene Trees & Species Trees
 
-LAGNiAppE @ LSU 2025
+LAGNiAppE @ LSU 2026
 Cathy Newman (UAB)
 
 **These instructions are for MacOS.** This tutorial and the necessary files are posted on GitHub here: [https://github.com/cathynewman/LAGNiAppE/](https://github.com/cathynewman/LAGNiAppE/)

@@ -1,6 +1,6 @@
 # Gene Trees & Species Trees
 
-LAGNiAppE workshop &#8226; Louisiana State University &#8226; April 24, 2025
+LAGNiAppE workshop &#8226; Louisiana State University &#8226; January 8, 2026
 
 ## Software
 
@@ -11,7 +11,7 @@ LAGNiAppE workshop &#8226; Louisiana State University &#8226; April 24, 2025
 * [Phylogenetics tutorial](1_phylo_tutorial.md)
 * [Turtle sequences](data/1_turtle_sequences.zip) (zip archive; in data/)
 
-We might not get to this during the workshop, but if you want to play around with phylogenetic trees in RStudio:
+We won't get to this during the workshop, but if you want to play around with phylogenetic trees in RStudio:
 
 * [Tree visualization tutorial](2_tree_viz.md)
 
