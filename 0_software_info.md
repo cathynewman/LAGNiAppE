@@ -36,3 +36,7 @@ Note: on MacOS 11.x, I got warnings and errors during the make process, but the 
 To run:
 1. In your terminal app, navigate into ASTER bin directory: `cd ASTER-MacOS/bin`
 2. Run weighted ASTRAL: `./wastral`
+
+## FigTree
+
+Download the latest stable release (Mac: dmg file): [link](https://github.com/rambaut/figtree/releases/tag/v1.4.4)
